@@ -56,6 +56,17 @@ button {
   font-size: 0.7rem;
   font-weight: 500;
 }
+.jumbotron {
+  padding: 2 rem 1 rem;
+  margin-bottom: 2 rem;
+  background-color: #ecf0f1;
+  border-radius: 0.3 rem;
+}
+@media (min-width: 576px) {
+  .jumbotron {
+    padding: 4rem 2rem;
+  }
+}
 .bs-docs-section {
   margin-top: 4em;
 }
