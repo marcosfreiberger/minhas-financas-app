@@ -4,6 +4,7 @@ import FormGroup from '../components/FormGroup';
 import { withRouter } from 'react-router-dom';
 import UsuarioService from './../app/service/usuarioService';
 import { mensagemSucesso, mensagemErro } from './../components/toastr';
+import LocalStorageService from './../app/service/localstorageService';
 
 class CadastroUsuario extends React.Component {
   state = {
@@ -45,7 +46,13 @@ class CadastroUsuario extends React.Component {
   };
 
   cancelar = () => {
-    this.props.history.push('/login');
+    const usuarioLogado = LocalStorageService.obterItem('_usuario_logado');
+
+    if (usuarioLogado) {
+      this.props.history.push('/home');
+    } else {
+      this.props.history.push('/login');
+    }
   };
 
   render() {

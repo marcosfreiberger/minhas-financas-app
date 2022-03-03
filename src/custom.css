@@ -12,7 +12,8 @@ pre {
     box-shadow: none;
   }
 }
-button {
+button,
+a {
   margin-right: 1rem;
 }
 #home,
