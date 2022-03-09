@@ -1,12 +1,21 @@
 import axios from 'axios';
 
+const baseURL = process.env.REACT_APP_API_URL;
+
 const httpClient = axios.create({
-  baseURL: 'https://minhasfinancasback-api.herokuapp.com/',
+  baseURL: baseURL,
+  withCredentials: true,
 });
 
 class ApiService {
   constructor(apiurl) {
     this.apiurl = apiurl;
+  }
+
+  static registrarToken(token) {
+    if (token) {
+      httpClient.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    }
   }
 
   post(url, objeto) {
